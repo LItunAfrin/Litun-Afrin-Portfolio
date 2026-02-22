@@ -1,10 +1,4 @@
-/**
-* Template Name: Folio
-* Template URL: https://bootstrapmade.com/folio-bootstrap-portfolio-template/
-* Updated: Aug 08 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 
 (function() {
   "use strict";
@@ -216,5 +210,25 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  /**
+ * Skills animation on scroll
+ */
+function skillsAnimation() {
+  const skillsSection = document.querySelector('#skills'); // match your HTML
+  if (!skillsSection) return;
+
+  const sectionTop = skillsSection.offsetTop;
+
+  // animate when section enters viewport
+  if (window.scrollY + window.innerHeight > sectionTop + 100) {
+    document.querySelectorAll('.progress').forEach((el) => {
+      el.style.width = el.getAttribute('data-skill') + '%';
+    });
+  }
+}
+
+window.addEventListener('scroll', skillsAnimation);
+window.addEventListener('load', skillsAnimation);
 
 })();
